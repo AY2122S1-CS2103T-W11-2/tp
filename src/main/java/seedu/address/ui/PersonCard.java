@@ -14,6 +14,9 @@ import seedu.address.model.person.Person;
  */
 public class PersonCard extends UiPart<Region> {
 
+    @FXML
+    private Label remark;
+
     private static final String FXML = "PersonListCard.fxml";
 
     /**
@@ -49,6 +52,7 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
+        remark.setText(person.getRemark().value);
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
