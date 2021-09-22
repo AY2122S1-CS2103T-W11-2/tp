@@ -43,8 +43,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Replaces the contents of the staff list with {@code staffs}.
      * {@code staffs} must not contain duplicate staffs.
      */
-    public void setStaffs(List<Staff> staffs) {
-        this.staffs.setStaffs(staffs);
+    public void setStaffs(List<Person> staffs) {
+        this.persons.setPersons(staffs);
     }
 
     /**
@@ -53,7 +53,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+        setStaffs(newData.getPersonList());
     }
 
     //// person-level operations
@@ -97,7 +97,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     @Override
     public String toString() {
-        return staffs.asUnmodifiableObservableList().size() + " staffs";
+        return persons.asUnmodifiableObservableList().size() + " staffs";
         // TODO: refine later
     }
 
