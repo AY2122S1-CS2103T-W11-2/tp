@@ -21,14 +21,14 @@ class JsonSerializableAddressBook {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
 
-    private final List<JsonAdaptedStaff> staffs = new ArrayList<>();
+    private final List<JsonAdaptedStaff> persons = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonSerializableAddressBook} with the given persons.
      */
     @JsonCreator
     public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedStaff> staffs) {
-        this.staffs.addAll(staffs);
+        this.persons.addAll(staffs);
     }
 
     /**
@@ -37,7 +37,7 @@ class JsonSerializableAddressBook {
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-        staffs.addAll(source.getStaffList().stream().map(JsonAdaptedStaff::new).collect(Collectors.toList()));
+        persons.addAll(source.getStaffList().stream().map(JsonAdaptedStaff::new).collect(Collectors.toList()));
     }
 
     /**
@@ -47,12 +47,12 @@ class JsonSerializableAddressBook {
      */
     public AddressBook toModelType() throws IllegalValueException {
         AddressBook addressBook = new AddressBook();
-        for (JsonAdaptedStaff jsonAdaptedStaff : staffs) {
-            Staff staff = jsonAdaptedStaff.toModelType();
-            if (addressBook.hasStaff(staff)) {
+        for (JsonAdaptedStaff jsonAdaptedPerson : persons) {
+            Staff person = jsonAdaptedPerson.toModelType();
+            if (addressBook.hasStaff(person)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
-            addressBook.addStaff(staff);
+            addressBook.addStaff(person);
         }
         return addressBook;
     }

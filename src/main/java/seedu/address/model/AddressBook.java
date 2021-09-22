@@ -40,11 +40,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the staff list with {@code persons}.
-     * {@code staffs} must not contain duplicate persons.
+     * Replaces the contents of the staff list with {@code staffs}.
+     * {@code staffs} must not contain duplicate staffs.
      */
-    public void setStaffs(List<Staff> staff) {
-        this.staffs.setStaffs(staff);
+    public void setStaffs(List<Staff> staffs) {
+        this.staffs.setStaffs(staffs);
     }
 
     /**
@@ -97,7 +97,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     @Override
     public String toString() {
-        return staffs.asUnmodifiableObservableList().size() + " persons";
+        return staffs.asUnmodifiableObservableList().size() + " staffs";
         // TODO: refine later
     }
 
