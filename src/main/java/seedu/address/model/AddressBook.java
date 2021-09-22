@@ -5,16 +5,16 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.staff.Staff;
-import seedu.address.model.staff.UniqueStaffList;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.UniquePersonList;
 
 /**
  * Wraps all data at the address-book level
- * Duplicates are not allowed (by .isSameStaff comparison)
+ * Duplicates are not allowed (by .isSamePerson comparison)
  */
 public class AddressBook implements ReadOnlyAddressBook {
 
-    private final UniqueStaffList staffs;
+    private final UniquePersonList persons;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -24,13 +24,13 @@ public class AddressBook implements ReadOnlyAddressBook {
      *   among constructors.
      */
     {
-        staffs = new UniqueStaffList();
+        persons = new UniquePersonList();
     }
 
     public AddressBook() {}
 
     /**
-     * Creates an AddressBook using the Staffs in the {@code toBeCopied}
+     * Creates an AddressBook using the Persons in the {@code toBeCopied}
      */
     public AddressBook(ReadOnlyAddressBook toBeCopied) {
         this();
@@ -53,25 +53,25 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setStaffs(newData.getStaffList());
+        setPersons(newData.getPersonList());
     }
 
-    //// staff-level operations
+    //// person-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code staff} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the address book.
      */
-    public boolean hasStaff(Staff staff) {
-        requireNonNull(staff);
-        return staffs.contains(staff);
+    public boolean hasPerson(Person person) {
+        requireNonNull(person);
+        return persons.contains(person);
     }
 
     /**
-     * Adds a staff to the address book.
-     * The staff must not already exist in the address book.
+     * Adds a person to the address book.
+     * The person must not already exist in the address book.
      */
-    public void addStaff(Staff p) {
-        staffs.add(p);
+    public void addPerson(Person p) {
+        persons.add(p);
     }
 
     /**
@@ -79,18 +79,18 @@ public class AddressBook implements ReadOnlyAddressBook {
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
-    public void setStaff(Staff target, Staff editedStaff) {
-        requireNonNull(editedStaff);
+    public void setPerson(Person target, Person editedPerson) {
+        requireNonNull(editedPerson);
 
-        staffs.setStaff(target, editedStaff);
+        persons.setPerson(target, editedPerson);
     }
 
     /**
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removeStaff(Staff key) {
-        staffs.remove(key);
+    public void removePerson(Person key) {
+        persons.remove(key);
     }
 
     //// util methods
@@ -102,19 +102,19 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     @Override
-    public ObservableList<Staff> getStaffList() {
-        return staffs.asUnmodifiableObservableList();
+    public ObservableList<Person> getPersonList() {
+        return persons.asUnmodifiableObservableList();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddressBook // instanceof handles nulls
-                && staffs.equals(((AddressBook) other).staffs));
+                && persons.equals(((AddressBook) other).persons));
     }
 
     @Override
     public int hashCode() {
-        return staffs.hashCode();
+        return persons.hashCode();
     }
 }

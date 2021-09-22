@@ -189,22 +189,22 @@ Recall from the User Guide that the `edit` command has the format: `edit INDEX [
    @Override
    public CommandResult execute(Model model) throws CommandException {
        ...
-       Person staffToEdit = lastShownList.get(index.getZeroBased());
-       Person editedStaff = createEditedPerson(staffToEdit, editPersonDescriptor);
-       if (!staffToEdit.isSamePerson(editedStaff) && model.hasPerson(editedStaff)) {
+       Person personToEdit = lastShownList.get(index.getZeroBased());
+       Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+       if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
        }
-       model.setPerson(staffToEdit, editedStaff);
+       model.setPerson(personToEdit, editedPerson);
        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-       return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedStaff));
+       return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
    }
    ```
 
 1. As suspected, `command#execute()` does indeed make changes to the `model` object. Specifically,
-   * it uses the `setPerson()` method (defined in the interface `Model` and implemented in `ModelManager` as per the usual pattern) to update the staff data.
-   * it uses the `updateFilteredPersonList` method to ask the `Model` to populate the 'filtered list' with _all_ staff.<br>
-     FYI, The 'filtered list' is the list of staff resulting from the most recent operation that will be shown to the user immediately after. For the `edit` command, we populate it with all the staff so that the user can see the edited staff along with all other staff. If this was a `find` command, we would be setting that list to contain the search results instead.<br>
-     To provide some context, given below is the class diagram of the `Model` component. See if you can figure out where the 'filtered list' of staff is being tracked.
+   * it uses the `setPerson()` method (defined in the interface `Model` and implemented in `ModelManager` as per the usual pattern) to update the person data.
+   * it uses the `updateFilteredPersonList` method to ask the `Model` to populate the 'filtered list' with _all_ persons.<br>
+     FYI, The 'filtered list' is the list of persons resulting from the most recent operation that will be shown to the user immediately after. For the `edit` command, we populate it with all the persons so that the user can see the edited person along with all other persons. If this was a `find` command, we would be setting that list to contain the search results instead.<br>
+     To provide some context, given below is the class diagram of the `Model` component. See if you can figure out where the 'filtered list' of persons is being tracked.
      <img src="../images/ModelClassDiagram.png" width="450" /><br>
    * :bulb: This may be a good time to read through the [`Model` component section of the DG](../DeveloperGuide.html#model-component)
 
@@ -231,7 +231,7 @@ Recall from the User Guide that the `edit` command has the format: `edit INDEX [
      * {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-        staff.addAll(
+        persons.addAll(
             source.getPersonList()
                   .stream()
                   .map(JsonAdaptedPerson::new)
