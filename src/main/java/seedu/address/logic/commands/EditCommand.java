@@ -24,6 +24,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -55,7 +56,7 @@ public class EditCommand extends Command {
 
     /**
      * @param index                of the person in the filtered person list to edit
-     * @param editPersonDescriptor details to edit the person with
+     * @param editStaffDescriptor details to edit the person with
      */
     public EditCommand(Index index, EditPersonDescriptor editStaffDescriptor) {
         requireNonNull(index);
@@ -97,9 +98,10 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(staffToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(staffToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(staffToEdit.getAddress());
+        Remark updatedRemark = staffToEdit.getRemark(); // edit command does not allow editing remarks
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(staffToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedRemark, updatedTags);
     }
 
     @Override
