@@ -21,4 +21,8 @@ public enum Role {
     public String getValue() {
         return role;
     }
+
+    public static String getMessageConstraints() {
+        return "This role does not exist";
+    }
 }

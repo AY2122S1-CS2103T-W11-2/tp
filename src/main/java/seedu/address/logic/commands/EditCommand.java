@@ -24,6 +24,8 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
+import seedu.address.model.person.Salary;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -55,7 +57,7 @@ public class EditCommand extends Command {
 
     /**
      * @param index                of the person in the filtered person list to edit
-     * @param editPersonDescriptor details to edit the person with
+     * @param editStaffDescriptor details to edit the person with
      */
     public EditCommand(Index index, EditPersonDescriptor editStaffDescriptor) {
         requireNonNull(index);
@@ -96,10 +98,13 @@ public class EditCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(staffToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(staffToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(staffToEdit.getEmail());
+        Role updatedRole = editPersonDescriptor.getRole().orElse(staffToEdit.getRole());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(staffToEdit.getAddress());
+        Salary updatedSalary = editPersonDescriptor.getSalary().orElse(staffToEdit.getSalary());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(staffToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedRole,
+                updatedAddress, updatedSalary, updatedTags);
     }
 
     @Override
@@ -130,6 +135,8 @@ public class EditCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
+        private Role role;
+        private Salary salary;
 
         public EditPersonDescriptor() {
         }
@@ -185,6 +192,22 @@ public class EditCommand extends Command {
             return Optional.ofNullable(address);
         }
 
+        public void setRole(Role role) {
+            this.role = role;
+        }
+
+        public Optional<Role> getRole() {
+            return Optional.ofNullable(role);
+        }
+
+        public void setSalary(Salary salary) {
+            this.salary = salary;
+        }
+
+        public Optional<Salary> getSalary() {
+            return Optional.ofNullable(salary);
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -221,7 +244,9 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getSalary().equals(e.getSalary())
+                    && getRole().equals(e.getRole());
         }
     }
 }

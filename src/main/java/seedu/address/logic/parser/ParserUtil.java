@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -13,6 +14,8 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Role;
+import seedu.address.model.person.Salary;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -121,5 +124,37 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String salary} into a {@Code Salary}.
+     *
+     * @throws ParseException if the given {@code salary} is invalid.
+     */
+    public static Salary parseSalary(String salary) throws ParseException {
+        requireNonNull(salary);
+        String trimmedSalary = salary.trim();
+        if (!Salary.isValidSalary(trimmedSalary)) {
+            throw new ParseException(Salary.MESSAGE_CONSTRAINTS);
+        }
+        return new Salary(Salary.keepTwoDecimal(trimmedSalary));
+    }
+
+    /**
+     * Parses a {@code String role} into a {@Code Role}.
+     * @throws ParseException if the given {@code role} is invalid.
+     */
+    public static Role parseRole(String role) throws ParseException {
+        requireNonNull(role);
+        String trimmedRole = role.trim();
+        if (trimmedRole.toLowerCase().equals(Role.HR.getValue())) {
+            return Role.HR;
+        } else if (trimmedRole.toLowerCase().equals(Role.DIRECTOR.getValue())) {
+            return Role.DIRECTOR;
+        } else if (trimmedRole.toLowerCase().equals(Role.MANAGER.getValue())){
+            return Role.MANAGER;
+        } else {
+            throw new ParseException(Role.getMessageConstraints());
+        }
     }
 }
