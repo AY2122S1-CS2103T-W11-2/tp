@@ -16,9 +16,11 @@ import seedu.address.model.tag.Tag;
 public class Person {
 
     // Identity fields
+    private final Id id;
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Role role;
 
     // Data fields
     private final Address address;
@@ -27,11 +29,13 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Role role, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
+        this.id = Id.generateUniqueId();
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.role = role;
         this.address = address;
         this.tags.addAll(tags);
     }
@@ -52,6 +56,14 @@ public class Person {
         return address;
     }
 
+    public Id getId() {
+        return id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
@@ -61,7 +73,7 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons have the same name.
+     * Returns true if both persons have the same id.
      * This defines a weaker notion of equality between two persons.
      */
     public boolean isSamePerson(Person otherStaff) {
@@ -70,7 +82,7 @@ public class Person {
         }
 
         return otherStaff != null
-                && otherStaff.getName().equals(getName());
+                && otherStaff.getId().equals(getId());
     }
 
     /**
@@ -88,7 +100,8 @@ public class Person {
         }
 
         Person otherStaff = (Person) other;
-        return otherStaff.getName().equals(getName())
+        return otherStaff.getId().equals(getId())
+                && otherStaff.getName().equals(getName())
                 && otherStaff.getPhone().equals(getPhone())
                 && otherStaff.getEmail().equals(getEmail())
                 && otherStaff.getAddress().equals(getAddress())
