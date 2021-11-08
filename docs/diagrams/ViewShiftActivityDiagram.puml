@@ -1,0 +1,17 @@
+@startuml
+start
+:User executes command;
+:Parse the command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+
+if () then ([The time or date input is valid])
+        :Find staffs who are working at that time;
+        :Display found staff's information in the staff fields;
+else ([else])
+endif
+:Display respond message in the output box;
+stop
+@enduml

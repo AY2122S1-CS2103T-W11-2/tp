@@ -1,0 +1,18 @@
+@startuml
+start
+:Staff select to be marked for period p;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([Staff has been absent])
+    if () then ([p overlaps with an absent period])
+        :Combine p with absent period;
+    else ([else])
+        :Add period p to set;
+    endif
+else ([else])
+    :Add period p to set;
+endif
+stop
+@enduml

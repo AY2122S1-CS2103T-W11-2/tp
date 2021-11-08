@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:User executes command;
+
+if () then ([Command arguments\n are correct])
+    : Filter the staff list based on the given conditions;
+    if () then ([At least one staff\n satisfies the\n conditions])
+        : Display the filtered staff\n       list to the user;
+    else ([else])
+        : Inform the user that no staff\n     matches the conditions;
+    endif
+else ([else])
+endif
+stop
+
+@enduml

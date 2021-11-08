@@ -1,0 +1,15 @@
+@startuml
+start
+:User executes command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([All staff(s) queried for \n not marked for period])
+    :mark staff(s) for period;
+    :Save to staffd.json;
+else ([else])
+    :Inform user of staff already marked for period;
+endif
+stop
+@enduml
