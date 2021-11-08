@@ -239,7 +239,7 @@ Opens a **help window** which contains a link to Staff'd information page.
 
 **Format:** `help`
 
-![help message](images/HelpMessage.png)
+![HelpMessage](images/HelpMessage.png)
 
 **Go to:**  
 [Table of Contents](#table-of-contents)
@@ -478,11 +478,12 @@ Searches can be conducted by `Name`, `Index`, or other fields. The search also f
 `find -n John -t friend` or `find -t friend -n John`
 
 **Output:**
-![List before using the find command](images/FindCommand.png)
+
+![FindCommand](images/FindCommand.png)
 _Only staff matching the fields inputted are displayed in the Staff Display_
 
 
-![List after find command is called](images/FindCommandSchedule.png)
+![FindCommandSchedule](images/FindCommandSchedule.png)
 _Only staff matching the fields inputted are displayed in the Schedule Display_
 
 **Go to:**  
@@ -521,6 +522,14 @@ Marking a single date:
 
 **See Also:** [`unmark` Command](#removing-the-absent-mark--unmark)
 
+**Output:**
+
+![MarkCommandList](images/MarkCommandList.png)
+_Staff’s absent periods updated in Staff View_
+
+![MarkCommandSchedule](images/MarkCommandSchedule.png)
+_Staff marked as absent in Schedule View_
+
 **Go to:**  
 [Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
@@ -545,6 +554,14 @@ The format of the input date is in: `YYYY-MM-DD`.
 `unmark -t friends da/2020-01-03`
 
 **See Also:** [`mark` Command](#marking-a-staff-as-absent--mark)
+
+**Output:**
+
+![UnmarkCommandList](images/UnmarkCommandList.png)
+_Staff’s absent periods updated in Staff View_
+
+![UnmarkCommandSchedule](images/UnmarkCommandSchedule.png)
+_Staff marked as present in Schedule View_
 
 **Go to:**  
 [Table of Contents](#table-of-contents)  
@@ -658,10 +675,10 @@ Note that day refers to the day of the week, and it is case-insensitive. However
 **Output:**
 
 ![ViewShiftCommandList](images/ViewShiftCommandList.png)
-_Staff working at the specified shift are displayed in Staff View._
+_Staff working at the specified shift are displayed in Staff View_
 
 ![ViewShiftCommandSchedule](images/ViewShiftCommandSchedule.png)
-_Staff working at the specified shift are displayed in Schedule View._
+_Staff working at the specified shift are displayed in Schedule View_
 
 **Go to:**  
 [Table of Contents](#table-of-contents)  
