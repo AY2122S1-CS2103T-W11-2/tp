@@ -30,7 +30,7 @@ Staff'd supports **salary calculation of staff**. By inputting the salaries and 
 --------------------------------------------------------------------------------------------------------------------
 # Table of Contents
 
-* Table of Contents 
+* Table of Contents
 {:toc}
 
 <br>
@@ -52,20 +52,16 @@ Staff'd supports **salary calculation of staff**. By inputting the salaries and 
 1. Opening the application creates a [**data folder**](#glossary):mag: inside the home folder. This will contained a **staffd.json** file which is the save file of Staff'd.
 
 ![Ui](images/Ui.png)
-[TODO Update Ui.png based on the latest updates]
 
 <br>
 
 ## Staff'd Commands
 A Staff'd Command is an **instruction** that signals Staff’d to perform an operation. It consists of a [Command Word](#glossary):mag: and [Parameters](#glossary):mag:.
-[TODO: ADD PICTURE WITH A SAMPLE COMMAND THAT ANNOTATES THE DIFFERENT SECTIONS]
+![CommandTextExample](images/CommandTextExample.png)![CommandTextExample2](images/CommandTextExample2.png)
 
 <div markdown="block" class="alert alert-info">
 
 **:exclamation: Notes about the command format:**<br>
-
-* Paameters must be inputted with a space before them.
-  e.g. `add n/NAME p/PHONE_NUMBER` is accepted, but `addn/NAME p/PHONE_NUMBER` and `add n/NAMEp/PHONE_NUMBER` will not be accepted.
 
 * Words in `UPPER_CASE` are the **parameters to be supplied**.
   e.g. in `add n/NAME`, `NAME` is a parameter which can be replaced with a name, such as `add n/John Doe`.
@@ -78,6 +74,10 @@ A Staff'd Command is an **instruction** that signals Staff’d to perform an ope
 
 * Parameters can be inputted in **any order**.
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+
+* Parameters must be **inputted with a space** before them.
+  e.g. `add n/NAME p/PHONE_NUMBER` is accepted, but `addn/NAME p/PHONE_NUMBER` and `add n/NAMEp/PHONE_NUMBER` will not be accepted.
+
 
 * If a parameter is expected only once in the command but you specified it multiple times, only the **last occurrence** of the parameter will be used.
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be used.
@@ -115,7 +115,7 @@ The following is an example of usage of Staff'd by a manager who wishes to **add
 1. Joe is going to work the first shift this Monday.
 1. Use the [`addShift`](#adding-a-shift-to-a-staffs-schedule--addshift) command to add the staff to the morning shift. <br> `addShift -n Joe d/monday-0`
 1. Type the command in the command box and press Enter to execute it.
-1. Enter `tab` into the command box and press Enter to change tabs to the Schedule Tab.
+1. Enter [`tab`](#changing-tabs--tab) into the command box and press Enter to change tabs to the Schedule Tab.
 
 </div>
 
@@ -123,13 +123,16 @@ Refer to the [Features](#features) section for more details of each command.
 
 <br>
 
+## User Guide Usage
+
 ### User Guide Formatting
+
 Formatting Item|Description
 ---------------|-----------
 **Bold** | Emphasizes key points
 _Italics_ | Examples to complement descrptions
-[Blue Words]() | Links to relevant information
-`Code Block` | [Commands](#staffd-commands), Command [Parameters](#glossary), or Command Examples
+[Blue Words](#user-guide-formatting) | Links to relevant information
+`Code Block` | [Commands](#staffd-commands), Command Parameters, or Command Examples
 :information_source: | Extra Information or Usage Examples
 :exclamation: | Important information
 :triangular_flag_on_post: | Links to [Flag Legend](#flag-legend):triangular_flag_on_post:
@@ -137,13 +140,13 @@ _Italics_ | Examples to complement descrptions
 
 <br>
 
-## User Guide Usage
 ### User Guide Navigation
+
 Item to Clarify | Section in User Guide
 --------------- | ---------------------
 Navigation | [Table of Contents](#table-of-contents)
 Staff'd Command Format | [Staff'd Commands](#staffd-commands)
-GUI | [GUI Breakdown](#gui-breakdown)
+[GUI](#glossary):mag: | [GUI Breakdown](#gui-breakdown)
 Staff'd Command Flags | [Flag Legend](#flag-legend):triangular_flag_on_post:
 Technical Terms | [Glossary](#glossary):mag:
 
@@ -156,20 +159,18 @@ The following is an example of how a user can refer to the User Guide to **learn
 
 :information_source: Example User Guide Usage on **Adding a New Staff**
 <br>
-1. Let's say you want to learn more about how to use Staff'd, and thus you read the [Introduction](##introduction-to-staffd) and [Quick Start Guide](#quick-start) of the User Guide.
+1. Let's say you want to learn more about how to use Staff'd, and thus you read the [Introduction](#introduction-to-staffd) and [Quick Start Guide](#quick-start) of the User Guide.
 1. After opening the app, you want to know how to **add a staff member** into the Staff List. Hence, you refer to the [_**Add Staff Command**_](#adding-a-staff--add) section for more information.
 1. You now want to know how to **interpret the format of the command**, and thus you refer to the [**Staff'd Commands**](#staffd-commands) section for more information.
 1. You are  still unsure of what the **flags** in the command mean and refer to the [**Flag Legend**](#flag-legend):triangular_flag_on_post: for more information.
-1. After understanding the command and flags, you return to the [_Add Staff Command_](#adding-a-staff-add) section. You read through the description of the command and the extra important information on how to use the command.
+1. After understanding the command and flags, you return to the [_Add Staff Command_](#adding-a-staff--add) section. You read through the description of the command and the extra important information on how to use the command.
 1. For a clearer understanding on how to use the command, you can **read through the examples** provided.
 1. After fully understanding the command, you input the command into the command box of Staff'd, and check the result message in the output box.
-  - If the command is successful, a success message will be displayed.
-  - If the command is unsuccessful, a help message will be displayed, which the you can use to understand where the error is.
+    - If the command is successful, a success message will be displayed.
+    - If the command is unsuccessful, a help message will be displayed, which the you can use to understand where the error is.
 1. At any point, if you want to **clarify any technical terms**, you can refer to the [**Glossary**](#glossary):mag:.
 
 </div>
-
-[TODO Add the picture showing the format of a command and its breakdown]
 
 [Return to Table of Contents](#table-of-contents)
 
@@ -178,8 +179,12 @@ The following is an example of how a user can refer to the User Guide to **learn
 
 ## GUI Breakdown
 ### GUI Overview
-[TODO: ADD PICTURE HERE OF STAFF DETAILS GUI]
-[TODO: ADD PICTURE HERE OF STAFF SCHEDULE GUI]
+![StaffList](images/StaffList.png)
+_Staff’d User Interface - Staff Display_
+
+![StaffSchedule](images/StaffSchedule.png)
+_Staff’d User Interface - Schedule Display_
+
 GUI Component | Description
 ------------- | -----------
 Menu Bar | Contains the **File** and **Help** buttons which contains an Exit button and Staff'd's User Guide respectively.
@@ -188,10 +193,15 @@ Output Box | **Displays output messages** from Staff'd. These can be **success m
 Command Box | Box where users **type in their inputs**. To submit an input, click the **Enter** button.
 Staff Display | **Displays** the **staff information** or **schedule information** depending on which tab you are in.
 
+[Return to Table of Contents](#table-of-contents)
+
 <br>
 
+
 ### Staff Display
-[TODO: ADD PICTURE THE ANNOTATIONS ON STAFF FIELDS + A TABLE FOR EACH OF THE COMPONENTS]
+![Staff Fields](images/StaffFields.png)
+_Staff Display Breakdown_
+
 Staff Field | Description
 ----------- | -----------
 Index | The index in the displayed staff list
@@ -209,7 +219,9 @@ For commands relevant to staff details management, refer to [these features](#ba
 <br>
 
 ### Schedule Display
-[TODO: ADD PICTURE FOR THE ANNOTATIONS OF SCHEDULE FIELDS]
+![Schedule Fields](images/ScheduleFields.png)
+_Schedule Display Breakdown_
+
 For commands relevant to staff schedule management, refer to [these features](#basic-management-of-staff-schedules).
 
 <br>
@@ -225,34 +237,35 @@ Opens a **help window** which contains a link to Staff'd information page.
 
 **Format:** `help`
 
-![help message](images/helpMessage.png)
+![help message](images/HelpMessage.png)
 
-**Go to:**
+**Go to:**  
 [Table of Contents](#table-of-contents)
 
 <br>
 
 ### Changing tabs : `tab`
-Switches between the tabs: **staff view** and **schedule**.
+Switches between the tabs: **Staff View** and **Schedule View**. Reference images for these tabs can be seen [here](#gui-breakdown).
 
 **Format:** `tab`
 
-**Go to:**
+**Go to:**  
 [Table of Contents](#table-of-contents)
 
 <br>
 
 ### Listing all staffs : `list`
 
-This **resets the displayed staff list** in both the staff view and schedule view to shows all of the current staffs. Also resets the schedule view to show the schedule for all the staffs to the period set by the [`Change`](#viewing-schedule-for-the-week--change) Command.
+This **resets the displayed staff list** in both the staff view and schedule view to shows all of the current staffs. Also resets the schedule view to show the schedule for all the staffs to the period set by the [`Change`](#viewing-schedule-for-the-week-change) Command.
 
 **Format:** `list`
 
-**Output**:
-![staff view](images/staff_view.png)
-*Staff List After `List Command`*
 
-**Go to:**
+
+**See Also:**[`setRoleReq` Command](#setting-role-requirements--setrolereq-)
+
+
+**Go to:**  
 [Table of Contents](#table-of-contents)
 
 <br>
@@ -263,9 +276,9 @@ This **resets the displayed staff list** in both the staff view and schedule vie
 
 **Format:** `clear`
 
-**See Also:** [`setRoleReq` Command](#setting-role-requirements--setrolereq-)
+**See Also:** [`setRoleReq` Command](#setting-role-requirements--setrolereq)
 
-**Go to:**
+**Go to:**  
 [Table of Contents](#table-of-contents)
 
 <br>
@@ -273,9 +286,10 @@ This **resets the displayed staff list** in both the staff view and schedule vie
 ### Setting Role Requirements : `setRoleReq`
 
 **Sets the role requirements**, which is the minimum number of staff required for each [role](#glossary):mag: in each shift.
+* The role "norole" cannot be set.
 * The default role requirements are 0 for all three roles.
 * The [Clear Command](#clearing-all-entries--clear) also resets the role requirements to the default.
-* Refer to the [flag legend](#flag-legend):triangular_flag_on_post: for more information on how to format the input for role requirements.
+* Refer to the [Flag Legend](#flag-legend):triangular_flag_on_post: for more information on how to format the input for role requirements.
 * The number inputted must be between 0 and 2147483647 (inclusive).
 * Multiple roles can be set in the same command, but if the same role is set multiple times in a command, the last instance would be the one set.
 * Staff with multiple roles are considered to be fulfilling all of their roles for a shift. For example, if there is one staff working on a shift with the roles _bartender_ and _floor_, and the requirements are 1 for both of those roles, the program considers both roles as fulfilled.
@@ -289,10 +303,14 @@ This **resets the displayed staff list** in both the staff view and schedule vie
 `setRoleReq rr/floor-3`\
 `setRoleReq rr/kitchen-4 rr/bartender-2`
 
+**Output**:
+![SetRoleReq](images/SetRoleReq.png)
+_After changing role requirements: `viewShift` Command notifies if there is a staff shortage for the viewed shift._
+
 **See Also:** [Clear Command](#clearing-all-entries--clear)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -301,7 +319,7 @@ This **resets the displayed staff list** in both the staff view and schedule vie
 
 Staff'd data are saved in the hard disk **automatically** after any command that changes the data. There is no need to save manually.
 
-**Go to:**
+**Go to:**  
 [Table of Contents](#table-of-contents)
 
 <br>
@@ -317,7 +335,7 @@ In the [data folder](#glossary):mag:, staff data and [role requirements](#glossa
 If your changes to the data file makes its format invalid, Staff'd will discard all data and start with an empty data file at the next run.
 </div>
 
-**Go to:**
+**Go to:**  
 [Table of Contents](#table-of-contents)
 
 <br>
@@ -328,7 +346,7 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 
 **Format:** `exit`
 
-**Go to:**
+**Go to:**  
 [Table of Contents](#table-of-contents)
 
 <br>
@@ -352,7 +370,7 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 **See Also:**
 [`delete` Command](#deleting-a-staff--delete)
 
-**Go to:**
+**Go to:**  
 [Table of Contents](#table-of-contents)
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
@@ -376,8 +394,8 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 `edit -n Bob p/69696969 e/candicepleasedateme@tinder.com`  
 `edit -n Candice r/cook`
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -401,12 +419,10 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 `delete -r floor`  
 `delete -s fulltime`
 
-![delete result](images/DeleteResult.png)
-
 **See Also:** [`add` Command](#adding-a-staff--add)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -457,15 +473,16 @@ Searches can be conducted by `Name`, `Index`, or other fields. The search also f
 `find -t fren -n john`  
 `find -n John -t friend` or `find -t friend -n John`
 
-**Output:**  
-List before using Find command:
-![List before using the find command](images/findCommand/BeforeFindCommand.jpg)
+**Output:**
+![List before using the find command](images/FindCommand.png)
+_Only staff matching the fields inputted are displayed in the Staff Display_
 
-List after using Find command:
-![List after find command is called](images/findCommand/AfterFindCommand.jpg)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+![List after find command is called](images/FindCommandSchedule.png)
+_Only staff matching the fields inputted are displayed in the Schedule Display_
+
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -500,8 +517,8 @@ Marking a single date:
 
 **See Also:** [`unmark` Command](#removing-the-absent-mark--unmark)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -525,8 +542,8 @@ The format of the input date is in: `YYYY-MM-DD`.
 
 **See Also:** [`mark` Command](#marking-a-staff-as-absent--mark)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -558,8 +575,8 @@ Adds a [shift](#flags-for-specific-fields) to a specified staff's schedule.
 
 **See Also:** [`deleteShift` Command](#deleting-a-shift-from-a-staff--deleteshift)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -582,8 +599,8 @@ Swaps a shift between two staff.
 
 **See Also:** [`setShiftTime` Command](#updating-the-start-time-and-end-time-for-a-shift--setshiftTime)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -605,8 +622,8 @@ Deletes a shift from the staff's schedule.
 
 **See Also:** [`addShift` Command](#adding-a-shift-to-a-staffs-schedule--addshift)
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -633,14 +650,18 @@ Note that day refers to the day of the week, and it is case-insensitive. However
 `viewShift -d TUESDAY-0`\
 `viewShift -ti wednesday-12:00`\
 `viewShift -ti THURSDAY-16:30`
-**Output after ViewShift Command:**
 
-![Example of ViewShiftCommand](images/viewShiftCommand/viewShift.jpg)
+**Output:**
 
+![ViewShiftCommandList](images/ViewShiftCommandList.png)
+_Staff working at the specified shift are displayed in Staff View._
 
-**Go to:**
-[Table of Contents](#table-of-contents)
-[Flag Legend](#flag-legend):triangular_flag_on_post:
+![ViewShiftCommandSchedule](images/ViewShiftCommandSchedule.png)
+_Staff working at the specified shift are displayed in Schedule View._
+
+**Go to:**  
+[Table of Contents](#table-of-contents)  
+[Flag Legend](#flag-legend):triangular_flag_on_post:  
 
 <br>
 
@@ -658,8 +679,16 @@ The change command changes the default period for shift-related commands, when n
 **Examples:**  
 `change da/2021-12-28`
 
-**Go to:**
-[Table of Contents](#table-of-contents)
+**Output:**
+
+![ChangeCommand](images/ChangeCommand.png)
+_Schedule View shows the new specified period._
+
+![ChangeCommandAddShift](images/ChangeCommandAddShift.png)
+_Shift-related commands such as `addShift` will be now be added to the new period._
+
+**Go to:**  
+[Table of Contents](#table-of-contents)  
 [Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
@@ -681,9 +710,9 @@ Updates the start time and end time of a specific shift of a specific staff.
 `setShiftTime -n Candice d/Monday-0 st/10:30-12:30 da/2021-10-01`\
 `setShiftTime -i 1 d/wednesday-1 st/17:00-21:30 da/2021-10-01 da/2021-11-01`
 
-**Go to:**
-[Table of Contents](#table-of-contents)
-[Flag Legend](#flag-legend):triangular_flag_on_post:
+**Go to:**  
+[Table of Contents](#table-of-contents)  
+[Flag Legend](#flag-legend):triangular_flag_on_post:  
 
 <br>
 
@@ -699,7 +728,14 @@ Displays the staff statistics for an individual staff or a group of staff for th
 `istaff -p 999`
 `istaff -n Joe`
 
-[Return to Table of Contents](#table-of-contents)
+**Output:**
+
+![IStaffCommand](images/IstaffCommand.png)
+_Statistics of the specified staff for the current month of November._
+
+**Go to:**  
+[Table of Contents](#table-of-contents)  
+[Flag Legend](#flag-legend):triangular_flag_on_post:
 
 <br>
 
@@ -710,9 +746,14 @@ Displays the staff statistics for all the staff: the total working hours and tot
 **Format:**
 `stats`
 
-**Go to:**
-[Table of Contents](#table-of-contents)
-[Flag Legend](#flag-legend):triangular_flag_on_post:
+**Output:**
+
+![StatsCommand](images/StatsCommand.png)
+_Statistics all the staff for the current month of November._
+
+**Go to:**  
+[Table of Contents](#table-of-contents)  
+[Flag Legend](#flag-legend):triangular_flag_on_post:  
 
 <br>
 
@@ -751,19 +792,19 @@ These flags are used for identifying fields and parameters in a command. The tab
 
 Flags for Specific Fields|Flags for Lookup|Name|Description/Conditions
 -----|-----|-----|----------
-i/|-i|Index|<ul><li>Represents the corresponding **staff index in the displayed staff list**.
-n/|-n|Name|<ul><li>Represents the **name** of the staff.<li>**Compulsory** field. <li>Names are case sensitive, so _john_ and _John_ are regarded as two different people.<li>Duplicate names are not accepted.
-p/|-p|Phone Number|<ul><li>Represents the **phone number** of the staff.<li>**Compulsory** field. <li>Phone number must be longer than 3 digits, containing only numeric characters.
-e/|-e|Email|<ul><li>Represents the **email** of a staff. <li>**Compulsory** field. <li>Must be of format `local-part@domain`. <li>The `local-part` must only contain alphanumeric characters, excluding and the special characters "`+ _ . -`"", but cannot start or end with any special character. <li>The `domain` is made up of `domain labels`  separated by periods. It must end with a `domain label` which is at least 2 characters long. <li>The `domain labels` must consist of alphanumeric characters, separated only by hyphens, if any, and they must start and end with alphanumeric characters.
-r/|-r|Role|<ul><li>Represents the **responsibilities** that a staff member has in the store.<li>The accepted roles are: `floor`, `kitchen`, or `bartender`. <li>The absence of a role would be denoted as "norole".
-t/|-t|Tags|<ul><li>Tags are used to **store additional information** about staff, and can be used to **reference staff**.<li>Tags are sorted in alphabetical order.
-s/|-s|Status|<ul><li>Represents the **employment status** of a staff.<li>The accepted statuses are: `fulltime`, or `partime`.
-$/|-$|Salary (per hour)|<ul><li>Represents the **salary** of a staff.<li>**Compulsory** field. <li>Must be a non-negative number representing the **staff's pay in dollars**. <li>Cents can be added, by adding a period, followed by the cents, which then also has to be a positive number of either 1 or 2 digits. <li>The maximum salary that can be set is $9999.99.
-d/|-d|Shift (for shift related commands)|<ul><li>Represents a **shift** of a staff.<li>Represented as a `DAYOFWEEK-SLOT_NUMBER`. <li>`DAYOFWEEK` refers to the **day of the week**, such as _monday_ or _saturday_. The `DAYOFWEEK` is case insensitive.<li>`SLOT_NUMBER` refers to either the first or second shift. The first shift (morning) is represented with `0`, and the second shift (afternoon) is represented with `1`.<li>Example: `TUESDAY-0` and `wednesday-1` are valid shifts.
-rr/|NA|Role Requirements|<ul><li>Represents the **requirements of each role**. <li>When  used as an input, it is represented as `ROLE-REQUIRED_NUMBER`. <li> The required number refers to the number of staff of that role required per shift.
-da/|NA|Date|<ul><li>Dates must be of format `YYYY-MM-DD` when provided.</li><li>**When no dates are provided:** the resultant period for the command is the next 7 days, inclusive of the current one.</li><li>**When one date is provided:** the resultant period for the command is the next following the one provided, inclusive.</li><li>**When two dates are provided:** the resultant period for the command is between the first and the second date provided, inclusive. The first date provided has to be before or equal to the second date.</li><li>To specify a single date, provide two dates representing same date.</li>
-st/|NA| Shift Time | <ul><li>Shift time must have start and end time.</li><li>Time is in the format of HH:mm. (e.g. 10:30 represents 10.30 am) </li><li>Start and end time must have a dash to delimit the two. (e.g. 10:30-11:30 represents 10.30 am to 11.30 a.m)</li>
-NA |-ti|Shift (by Time)|<ul><li>Represents in the format `DAYOFWEEK-TIME` <li>The time must be of format `HH:mm`, and follows the 24hr format.
+i/|-i|Index|{::nomarkdown}<ul><li>Represents the corresponding staff index in the displayed staff list.{:/}
+n/|-n|Name|{::nomarkdown}<ul><li>Represents the name of the staff.<li><b>Compulsory</b> field. <li>Names are case sensitive, so _john_ and _John_ are regarded as two different people.<li>Duplicate names are not accepted.{:/}
+p/|-p|Phone Number|{::nomarkdown}<ul><li>Represents the <b>phone number</b> of the staff.<li><b>Compulsory</b> field. <li>Phone number must be longer than 3 digits, containing only numeric characters.{:/}
+e/|-e|Email|{::nomarkdown}<ul><li>Represents the <b>email</b> of a staff. <li><b>Compulsory</b> field. <li>Must be of format <code>local-part@domain</code>. <li>The <code>local-part</code> must only contain alphanumeric characters, excluding and the special characters "<code>+ _ . -</code>", but cannot start or end with any special character. <li>The <code>domain</code> is made up of <code>domain labels</code>  separated by periods. It must end with a <code>domain label</code> which is at least 2 characters long. <li>The <code>domain labels</code> must consist of alphanumeric characters, separated only by hyphens, if any, and they must start and end with alphanumeric characters.{:/}
+r/|-r|Role|{::nomarkdown}<ul><li>Represents the <b>responsibilities</b> that a staff member has in the store.<li>The accepted roles are: <code>floor</code>, <code>kitchen</code>, or <code>bartender</code>. <li>The absence of a role would be denoted as "norole".{:/}
+t/|-t|Tags|{::nomarkdown}<ul><li>Tags are used to <b>store additional information</b> about staff, and can be used to <b>reference staff</b>.<li>Tags are sorted in alphabetical order.{:/}
+s/|-s|Status|{::nomarkdown}<ul><li>Represents the <b>employment status</b> of a staff.<li>The accepted statuses are: <code>fulltime</code>, or <code>partime</code>.{:/}
+$/|-$|Salary (per hour)|{::nomarkdown}<ul><li>Represents the <b>salary</b> of a staff.<li><b>Compulsory</b> field. <li>Must be a non-negative number representing the <b>staff's pay in dollars</b>. <li>Cents can be added, by adding a period, followed by the cents, which then also has to be a positive number of either 1 or 2 digits. <li>The maximum salary that can be set is $9999.99.{:/}
+d/|-d|Shift (for shift related commands)|{::nomarkdown}<ul><li>Represents a <b>shift</b> of a staff.<li>Represented as a <code>DAYOFWEEK-SLOT_NUMBER</code>. <li><code>DAYOFWEEK</code> refers to the <b>day of the week</b>, such as _monday_ or _saturday_. The <code>DAYOFWEEK</code> is case insensitive.<li><code>SLOT_NUMBER</code> refers to either the first or second shift. The first shift (morning) is represented with <code>0</code>, and the second shift (afternoon) is represented with <code>1</code>.<li>Example: <code>TUESDAY-0</code> and <code>wednesday-1</code> are valid shifts.{:/}
+rr/|NA|Role Requirements|{::nomarkdown}<ul><li>Represents the <b>requirements of each role</b>. <li>When  used as an input, it is represented as <code>ROLE-REQUIRED_NUMBER</code>. <li> The required number refers to the number of staff of that role required per shift.{:/}
+da/|NA|Date|{::nomarkdown}<ul><li>Dates must be of format <code>YYYY-MM-DD</code> when provided.</li><li><b>When no dates are provided:</b> the resultant period for the command is the next 7 days, inclusive of the current one.</li><li><b>When one date is provided:</b> the resultant period for the command is the next following the one provided, inclusive.</li><li><b>When two dates are provided:</b> the resultant period for the command is between the first and the second date provided, inclusive. The first date provided has to be before or equal to the second date.</li><li>To specify a single date, provide two dates representing same date.</li>{:/}
+st/|NA| Shift Time |{::nomarkdown}<ul><li>Shift time must have start and end time.</li><li>Time is in the format of HH:mm. (e.g. 10:30 represents 10.30 am) </li><li>Start and end time must have a dash to delimit the two. (e.g. 10:30-11:30 represents 10.30 am to 11.30 a.m)</li>{:/}
+NA |-ti|Shift (by Time)|{::nomarkdown}<ul><li>Represents in the format <code>DAYOFWEEK-TIME</code> <li>The time must be of format <code>HH:mm</code>, and follows the 24hr format.{:/}
 
 :exclamation: Note: "NA" means that the tag does not exist.
 
