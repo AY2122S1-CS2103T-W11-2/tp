@@ -182,6 +182,8 @@ The following is an example of how a user can refer to the User Guide to **learn
 ![StaffList](images/StaffList.png)
 _Staff’d User Interface - Staff Display_
 
+<br>
+
 ![StaffSchedule](images/StaffSchedule.png)
 _Staff’d User Interface - Schedule Display_
 
@@ -260,7 +262,9 @@ This **resets the displayed staff list** in both the staff view and schedule vie
 
 **Format:** `list`
 
-
+**Output**:
+![SetRoleReq](images/ListCommand.png)
+_Full Staff List is displayed._
 
 **See Also:**[`setRoleReq` Command](#setting-role-requirements--setrolereq-)
 
