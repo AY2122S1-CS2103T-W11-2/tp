@@ -212,7 +212,7 @@ Phone | Staff Phone Number
 Email | Staff Email Address
 Absent Period | Periods that a staff will be absent from work
 Roles | Staff Roles (Available Roles: `bartender`, `floor`, `kitchen`)
-Status | Staff Employment Status (Either `fulltime` or `parttime`)
+Status | Staff Employment Status (Either `fulltime`, `parttime` and `nostatus`)
 Salary | Staff Hourly Pay (in Dollars)
 Tags | Additional Staff Information that can be used to reference staff.
 
@@ -289,7 +289,7 @@ _Full Staff List is displayed._
 
 ### Setting Role Requirements : `setRoleReq`
 
-**Sets the role requirements**, which is the minimum number of staff required for each [role](#glossary):mag: in each shift.
+**Sets the role requirements**, which is the minimum number of staff required for each [role](#glossary):mag: in all shifts.
 * The role "norole" cannot be set.
 * The default role requirements are 0 for all three roles.
 * The [Clear Command](#clearing-all-entries--clear) also resets the role requirements to the default.
@@ -362,7 +362,7 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 
 **Adds** a staff to the system.
 
-* Upon the addition of a staff, the system provides an `index` for them in the [Staff List](#glossary), which can be use in other commands, to refer to them.
+* Upon the addition of a staff, the system provides an `index` for them in the [Staff List](#glossary):mag:, which can be use in other commands, to refer to them.
 
 **Format:**
 `add n/NAME p/PHONE_NUMBER e/EMAIL $/SALARY [s/STATUS] [r/ROLE]... [t/TAG]...`
@@ -408,7 +408,7 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 
 **Deletes** all the specified staff from the Stafflist.
 
-* Requires exactly one of the following [fields](#fields-of-a-staff): `NAME`, `ROLE`, `STATUS`, `INDEX`.
+* Requires exactly one of the following [fields](#flag-legend):triangular_flag_on_post:: `NAME`, `ROLE`, `STATUS`, `INDEX`.
 * Deletes all the staff that have the provided field.
 
 **Formats:**  
@@ -433,7 +433,7 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 
 ### Finding staff : `find`
 
-**Searches for staff** by the input [fields](#fields-of-a-staff).
+**Searches for staff** by the input [fields](#flag-legend):triangular_flag_on_post:.
 
 Searches can be conducted by `Name`, `Index`, or other fields. The search also filters the [displayed Staff List](#glossary):mag: and schedule display to only display the staff that meet the requirements.
 
@@ -574,9 +574,9 @@ _Staff marked as present in Schedule View_
 
 ### Adding a shift to a staff's schedule : `addShift`
 
-Adds a [shift](#flags-for-specific-fields) to a specified staff's schedule.
+Adds a [shift](#flag-legend):triangular_flag_on_post: to a specified staff's schedule.
 
-* Takes [0, 1, or 2 date inputs](#flags-for-specific-fields):triangular_flag_on_post:. Shifts would be added to all occurances in the period.
+* Takes [0, 1, or 2 date inputs](#flag-legend):triangular_flag_on_post:. Shifts would be added to all occurances in the period.
 * The start time and end time will be set to the [default shift timings](#glossary):mag:
 
 
@@ -605,10 +605,10 @@ Adds a [shift](#flags-for-specific-fields) to a specified staff's schedule.
 ### Swapping shifts : `swapShift`
 Swaps a shift between two staff.
 
-* The two staff are only identified using their [names](#flags-for-lookup). The name provided has to exactly match the name of the staff to swapped.
-* Takes [0, 1 or 2 date inputs](#flag-legend):triangular_flag: representing the period to swap.
+* The two staff are only identified using their [names](#flag-legend):triangular_flag_on_post:. The name provided has to exactly match the name of the staff to swapped.
+* Takes [0, 1 or 2 date inputs](#flag-legend):triangular_flag_on_post: representing the period to swap.
 * The staff identified using the first name provided, is associated with the first shift. The staff identified using the second name provided, is associated with the second shift.
-* This command resets any changes in shift timing done using the [setShiftTime](#Updating-the-start-time-and-end-time-for-a-shift--setShiftTime) command.
+* This command resets any changes in shift timing done using the [setShiftTime](#updating-the-start-time-and-end-time-for-a-shift--setshifttime) command.
 
 **Formats:**  
 `swapShift -n NAME -n NAME d/DAYOFWEEK-SHIFT_NUMBER d/DAYOFWEEK-SHIFT_NUMBER [da/START_DATE] [da/END_DATE]`\
@@ -618,7 +618,7 @@ Swaps a shift between two staff.
 `swapShift -n Candice -n Bob d/monday-0 d/tuesday-1 da/2021-10-01`\
 `swapShift -n Candice d/monday-0 -n Bob d/tuesday-1`
 
-**See Also:** [`setShiftTime` Command](#updating-the-start-time-and-end-time-for-a-shift--setshiftTime)
+**See Also:** [`setShiftTime` Command](#updating-the-start-time-and-end-time-for-a-shift--setshifttime)
 
 **Go to:**  
 [Table of Contents](#table-of-contents)  
@@ -654,7 +654,7 @@ Deletes a shift from the staff's schedule.
 Finds all the staff working at a particular shift.
 
 * The shift can be specified by indicating the day of the week, and either the time or the slot number.
-* Takes [0, 1 or 2 date inputs](#flags-for-specific-fields):triangular_flag_on_post:. Only the first occurance of the shift in the period would be displayed.
+* Takes [0, 1 or 2 date inputs](#flag-legend):triangular_flag_on_post:. Only the first occurance of the shift in the period would be displayed.
 * If no date or day input is provided, the current shift is displayed along with a help message of the format of `viewShift`.
 * This command filters the [displayed Staff List](#glossary):mag: to only display the staff that are scheduled to work on the shift.
 * This command also filters the schedule display to show only the staff that have been assigned to work on the shift.
@@ -692,7 +692,7 @@ The change command changes the default period for shift-related commands, when n
 
 * This command also changes the days displayed in the [Schedule Display](#glossary):mag: in the schedule tab.
 * The default period is the next 7 days inclusive of today.
-* Takes only [1 date input](#flags-for-specific-fields):triangular_flag_on_post:, and displays the next 7 days, inclusive of the date provided.
+* Takes only [1 date input](#flag-legend):triangular_flag_on_post:, and displays the next 7 days, inclusive of the date provided.
 
 **Format:**  
 `change da/DATE`
@@ -719,7 +719,7 @@ _Shift-related commands such as `addShift` will be now be added to the new perio
 Updates the start time and end time of a specific shift of a specific staff.
 
 * Time inputs should follow the requirements specified in the Flag Legend: [Shift Time](#flag-legend):triangular_flag_on_post:.
-* Takes [0, 1 or 2 date inputs](#flags-for-specific-fields):triangular_flag_on_post:. The specified shift times would be set for all occurances of the shift in the period would be displayed.
+* Takes [0, 1 or 2 date inputs](#flag-legend):triangular_flag_on_post:. The specified shift times would be set for all occurances of the shift in the period would be displayed.
 * If the shift does not exist in the staff's schedule, it will be added.
 
 **Formats:**  
@@ -785,7 +785,7 @@ _Statistics all the staff for the current month of November._
 Action | Format, Examples
 --------|------------------
 [**Help**](#viewing-help--help) | `help`
-[**Tab**](#changing-tabs-tab) | `tab`
+[**Tab**](#changing-tabs--tab) | `tab`
 [**List**](#listing-all-staffs--list) | `list`
 [**Clear**](#clearing-all-entries--clear) | `clear`
 [**Set role requirements**](#setting-role-requirements--setrolereq) | `setRoleReq r/ROLE-NUMBER_REQUIRED...`
@@ -800,8 +800,8 @@ Action | Format, Examples
 [**Swap shifts**](#swapping-shifts--swapshift) | `swapShift -n NAME -n NAME d/day-shift_number d/day-shift_number [da/START_DATE] [da/END_DATE]` <br> `swapShift -n NAME d/day-shift_number -n NAME d/day-shift_number [da/START_DATE] [da/END_DATE]`
 [**Delete staff shift**](#deleting-a-shift-from-a-staff--deleteshift) | `deleteShift -n NAME d/DAY-SHIFTNUMBER [da/START_DATE] [da/END_DATE]` <br> `deleteShift -i INDEX d/DAY-SHIFTNUMBER [da/START_DATE] [da/END_DATE]`
 [**View shift**](#viewing-all-the-staff-working-a-shift--viewshift) | `viewShift -d DAY-SHIFTNUMBER [da/START_DATE] [da/END_DATE]` <br> `viewShift -ti DAY-HH:mm [da/START_DATE] [da/END_DATE]`
-[**Change schedule**](#viewing-schedule-for-the-week--change) | `change da/START_DATE`
-[**Set shift time**](#updating-the-start-time-and-end-time-for-a-shift--setshift-time) | `setShiftTime -n NAME d/DAYOFWEEK-SHIFTNUMBER st/hh:mm-hh:mm [da/START_DATE] [da/END_DATE]` <br> `setShiftTime -i INDEX d/DAYOFWEEK-SHIFTNUMBER st/hh:mm-hh:mm [da/START_DATE] [da/END_DATE]`
+[**Change schedule**](#viewing-schedule-for-the-week-change) | `change da/START_DATE`
+[**Set shift time**](#updating-the-start-time-and-end-time-for-a-shift--setshifttime) | `setShiftTime -n NAME d/DAYOFWEEK-SHIFTNUMBER st/hh:mm-hh:mm [da/START_DATE] [da/END_DATE]` <br> `setShiftTime -i INDEX d/DAYOFWEEK-SHIFTNUMBER st/hh:mm-hh:mm [da/START_DATE] [da/END_DATE]`
 [**Individual staff statistics**](#viewing-individual-staff-statistics--istaff) | `istaff [-i INDEX] [-n NAME] [-p PHONE] [-e EMAIL] [-$ SALARY] [-s STATUS] [-r ROLE]...`
 [**Total staff statistics**](#viewing-overall-staff-statistics--stats) | `stats`
 
@@ -819,7 +819,7 @@ p/|-p|Phone Number|{::nomarkdown}<ul><li>Represents the <b>phone number</b> of t
 e/|-e|Email|{::nomarkdown}<ul><li>Represents the <b>email</b> of a staff. <li><b>Compulsory</b> field. <li>Must be of format <code>local-part@domain</code>. <li>The <code>local-part</code> must only contain alphanumeric characters, excluding and the special characters "<code>+ _ . -</code>", but cannot start or end with any special character. <li>The <code>domain</code> is made up of <code>domain labels</code>  separated by periods. It must end with a <code>domain label</code> which is at least 2 characters long. <li>The <code>domain labels</code> must consist of alphanumeric characters, separated only by hyphens, if any, and they must start and end with alphanumeric characters.{:/}
 r/|-r|Role|{::nomarkdown}<ul><li>Represents the <b>responsibilities</b> that a staff member has in the store.<li>The accepted roles are: <code>floor</code>, <code>kitchen</code>, or <code>bartender</code>. <li>The absence of a role would be denoted as "norole".{:/}
 t/|-t|Tags|{::nomarkdown}<ul><li>Tags are used to <b>store additional information</b> about staff, and can be used to <b>reference staff</b>.<li>Tags are sorted in alphabetical order.{:/}
-s/|-s|Status|{::nomarkdown}<ul><li>Represents the <b>employment status</b> of a staff.<li>The accepted statuses are: <code>fulltime</code>, or <code>partime</code>.{:/}
+s/|-s|Status|{::nomarkdown}<ul><li>Represents the <b>employment status</b> of a staff.<li>The accepted statuses are: <code>fulltime</code>, <code>partime</code> or <code>nostatus</code>.{:/}
 $/|-$|Salary (per hour)|{::nomarkdown}<ul><li>Represents the <b>salary</b> of a staff.<li><b>Compulsory</b> field. <li>Must be a non-negative number representing the <b>staff's pay in dollars</b>. <li>Cents can be added, by adding a period, followed by the cents, which then also has to be a positive number of either 1 or 2 digits. <li>The maximum salary that can be set is $9999.99.{:/}
 d/|-d|Shift (for shift related commands)|{::nomarkdown}<ul><li>Represents a <b>shift</b> of a staff.<li>Represented as a <code>DAYOFWEEK-SLOT_NUMBER</code>. <li><code>DAYOFWEEK</code> refers to the <b>day of the week</b>, such as _monday_ or _saturday_. The <code>DAYOFWEEK</code> is case insensitive.<li><code>SLOT_NUMBER</code> refers to either the first or second shift. The first shift (morning) is represented with <code>0</code>, and the second shift (afternoon) is represented with <code>1</code>.<li>Example: <code>TUESDAY-0</code> and <code>wednesday-1</code> are valid shifts.{:/}
 rr/|NA|Role Requirements|{::nomarkdown}<ul><li>Represents the <b>requirements of each role</b>. <li>When  used as an input, it is represented as <code>ROLE-REQUIRED_NUMBER</code>. <li> The required number refers to the number of staff of that role required per shift.{:/}
