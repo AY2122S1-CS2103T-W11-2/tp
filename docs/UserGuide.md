@@ -195,10 +195,6 @@ Output Box | **Displays output messages** from Staff'd. These can be **success m
 Command Box | Box where users **type in their inputs**. To submit an input, click the **Enter** button.
 Staff Display | **Displays** the **staff information** or **schedule information** depending on which tab you are in.
 
-[Return to Table of Contents](#table-of-contents)
-
-<br>
-
 
 ### Staff Display
 ![Staff Fields](images/StaffFields.png)
@@ -225,6 +221,8 @@ For commands relevant to staff details management, refer to [these features](#ba
 _Schedule Display Breakdown_
 
 For commands relevant to staff schedule management, refer to [these features](#basic-management-of-staff-schedules).
+
+[Return to Table of Contents](#table-of-contents)
 
 <br>
 
@@ -364,10 +362,10 @@ If your changes to the data file makes its format invalid, Staff'd will discard 
 
 * Upon the addition of a staff, the system provides an `index` for them in the [Staff List](#glossary):mag:, which can be use in other commands, to refer to them.
 
-**Format:**
+**Format:** \
 `add n/NAME p/PHONE_NUMBER e/EMAIL $/SALARY [s/STATUS] [r/ROLE]... [t/TAG]...`
 
-**Examples:**
+**Examples:** \
 `add n/Joe s/fulltime r/kitchen p/98765432 $/1234789 e/Joe@example.com`  
 `add n/Candice s/parttime p/91234567 $/2 e/candice@example.com`
 
